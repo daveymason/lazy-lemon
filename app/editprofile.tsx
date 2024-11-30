@@ -6,7 +6,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useRouter } from 'expo-router';
 
-export default function OnboardingScreen() {
+export default function EditProfileScreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const { setIsLoggedIn, setUserInfo } = useLogin();
@@ -24,11 +24,11 @@ export default function OnboardingScreen() {
 
   return (
     <ThemedView style={styles.container}>
-      <ThemedText style={styles.title}>Welcome to Lazy Lemon</ThemedText>
+      <ThemedText style={styles.title}>Edit Profile</ThemedText>
       
       <TextInput
         style={styles.input}
-        placeholder="Enter your name"
+        placeholder="Edit your name"
         value={name}
         onChangeText={setName}
         placeholderTextColor="#666"
@@ -36,7 +36,7 @@ export default function OnboardingScreen() {
 
       <TextInput
         style={styles.input}
-        placeholder="Enter your email"
+        placeholder="Edit your email"
         value={email}
         onChangeText={setEmail}
         keyboardType="email-address"
@@ -52,7 +52,7 @@ export default function OnboardingScreen() {
         onPress={handleSubmit}
         disabled={!isFormValid}
       >
-        <ThemedText style={styles.buttonText}>Next</ThemedText>
+        <ThemedText style={styles.buttonText}>Update</ThemedText>
       </TouchableOpacity>
     </ThemedView>
   );

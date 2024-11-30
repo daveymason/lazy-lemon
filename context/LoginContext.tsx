@@ -5,14 +5,16 @@ interface LoginContextType {
   setIsLoggedIn: (value: boolean) => void;
   userInfo: {
     name: string;
+    email: string;
   } | null;
+  setUserInfo: (info: { name: string; email: string; } | null) => void;
 }
 
 export const LoginContext = createContext<LoginContextType>({
   userInfo: null,
   isLoggedIn: false,
   setIsLoggedIn: () => {},
-
+  setUserInfo: () => {},
 });
 
 export function LoginProvider({ children }: { children: React.ReactNode }) {
@@ -20,7 +22,12 @@ export function LoginProvider({ children }: { children: React.ReactNode }) {
   const [userInfo, setUserInfo] = useState<LoginContextType['userInfo']>(null);
 
   return (
-    <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn, userInfo }}>
+    <LoginContext.Provider value={{ 
+      isLoggedIn, 
+      setIsLoggedIn, 
+      userInfo, 
+      setUserInfo 
+    }}>
       {children}
     </LoginContext.Provider>
   );

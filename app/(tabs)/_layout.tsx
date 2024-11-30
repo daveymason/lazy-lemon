@@ -35,6 +35,19 @@ export default function TabLayout() {
           tabBarBadge: cartItemCount > 0 ? cartItemCount : undefined
         }}
       />
+      <Tabs.Screen 
+        name="profile" 
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons 
+              name="person-outline"
+              size={size} 
+              color={color}
+              style={{ marginTop: 3 }}
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
